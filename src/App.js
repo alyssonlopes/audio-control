@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// Passo 1: Importar o React
+import React from "react";
+import ControlItem from "./components/ControlItem";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const CONTROL_ITEMS = [
+  { value: 100, title: "Volume" },
+  { value: 66, title: "Treble" },
+  { value: 77, title: "Mid" },
+  { value: 88, title: "Bass" },
+];
+
+// Passo 2: Declarar a classe componente
+class App extends React.Component {
+  // Passo 3: sobrescrever o render
+  render() {
+    return (
+      <>
+        <ul>
+          {CONTROL_ITEMS.map(({ value, title }) => (
+            <ControlItem value={value} title={title} />
+          ))}
+        </ul>
+      </>
+    );
+  }
 }
 
+// Passo 4: Exportar o componente
 export default App;
